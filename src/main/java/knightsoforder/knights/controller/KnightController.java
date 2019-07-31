@@ -29,7 +29,7 @@ public class KnightController {
 
     @GetMapping("/knight_created")
     public String create(@ModelAttribute Knight knight){
-        knightRepository.save(knight);
+        knightRepository.saveDefault(knight);
         return "created";
     }
 
