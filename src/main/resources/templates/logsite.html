@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Zarejestruj | KoO</title>
+    <title>Knight of Order</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -56,19 +56,21 @@
 ================================================== -->
 <section class="s-content-reg s-content--narrow">
     <center>
-    <h1>Zarejestruj</h1>
-    <form action="/createknight" method="post" th:object="${new_user}">
+        <h1>Witaj w świecie rycerzy porządku!</h1>
+        <h3>Wejdź do gry...</h3>
 
         <p>
-            <a>E-Mail: </a><input th:field="*{email}" type="email" value=""></p>
+            <a></a><input type="email" value="" placeholder="e-mail"></p>
         <p>
-            <a>Hasło: </a><input th:field="*{password}" type="password" value=""></p>
+            <a></a><input type="password" value="" placeholder="hasło"></p>
         <p>
-            <a>Powtórz hasło: </a><input type="password" value=""></p>
-        <p>
-            <input type="submit" value="Zarejestruj">
+            <input type="submit" value="Zaloguj">
         </p>
-    </form>
+        <h3>...lub zacznij nową przygodę!</h3>
+        <p>
+        <form action="/registration">
+            <input type="submit" value="Zerejestruj"></form>
+        </p>
     </center>
 </section> <!-- s-content -->
 

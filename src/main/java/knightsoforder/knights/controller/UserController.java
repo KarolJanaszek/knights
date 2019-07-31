@@ -16,14 +16,19 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("/")
+    public String home (){
+        return "logsite";
+    }
+
+    @GetMapping("/registration")
     public String registeration(ModelMap map){
         map.put("new_user",new User());
         return "registration";
     }
 
-    @PostMapping("/create_knight")
+    @PostMapping("/createknight")
     public String create(@ModelAttribute User user){
         userRepository.save(user);
-        return "create_knight";
+        return "createknight";
     }
 }

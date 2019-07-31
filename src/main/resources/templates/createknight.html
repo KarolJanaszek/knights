@@ -57,14 +57,14 @@
 <section class="s-content-reg s-content--narrow">
     <center>
         <h1>Podaj dane rycerza</h1>
-        <form action="/knight_created" method="get" th:object="${new_knight}">
+        <form action="/knightcreated" method="get" th:object="${new_knight}">
 
             <p>
-                <a>Nick: </a><input th:field="*{nick}" type="text" value="">
+                <a>Nick: <input th:field="*{nick}" type="text" value=""></a>
             </p>
 
             <p>
-                <input type="submit" value="Stwórz">
+                <input type="submit" value="Stwórz"/>
             </p>
         </form>
     </center>
