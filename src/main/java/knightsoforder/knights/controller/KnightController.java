@@ -17,7 +17,7 @@ public class KnightController {
     @GetMapping("/createknight")
     public String addNewKnight(ModelMap map){
         map.put("new_knight", new Knight());
-        return "/createknight";
+        return "createknight";
     }
 
     @GetMapping("/knight")
