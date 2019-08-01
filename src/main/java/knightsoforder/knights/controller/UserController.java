@@ -22,13 +22,13 @@ public class UserController {
 
     @GetMapping("/registration")
     public String registeration(ModelMap map){
-        map.put("new_user",new User());
+        map.put("newUser",new User());
         return "registration";
     }
 
-    @PostMapping("/createknight")
+    @PostMapping("/create")
     public String create(@ModelAttribute User user){
         userRepository.save(user);
-        return "createknight";
+        return "create";
     }
 }

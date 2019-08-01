@@ -57,7 +57,7 @@
 <section class="s-content-reg s-content--narrow">
     <center>
     <h1>Zarejestruj</h1>
-    <form action="/createknight" method="post" th:object="${new_user}">
+    <form action="/create" method="post" th:object="${newUser}">
 
         <p>
             <a>E-Mail: </a><input th:field="*{email}" type="email" value=""></p>

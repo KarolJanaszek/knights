@@ -15,10 +15,10 @@ public class KnightController {
     @Autowired
     private KnightRepository knightRepository;
 
-    @GetMapping("/createknight")
+    @GetMapping("/create")
     public String addNewKnight(ModelMap map){
-        map.put("new_knight", new Knight());
-        return "createknight";
+        map.put("newKnight", new Knight());
+        return "create";
     }
 
     @GetMapping("/knight/{id}")
@@ -27,11 +27,11 @@ public class KnightController {
         return "knight";
     }
 
-    @GetMapping("/knightcreated")
+    @GetMapping("/done")
     public String create(@ModelAttribute Knight knight,ModelMap map){
         knightRepository.saveDefault(knight);
         map.put("knight",knight);
-        return "created";
+        return "done";
     }
 
 

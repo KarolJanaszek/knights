@@ -14,18 +14,18 @@ public class Knight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer knight_ID;
+    private Integer knightId;
     private String nick;
 
     private Integer lvl;
 
-    private Integer max_pd;
+    private Integer maxPd;
     private Integer pd;
 
-    private Integer max_hp;
+    private Integer maxHp;
     private Integer hp;
 
-    private Integer i_lvl;
+    private Integer iLvl;
 
     private Integer gold;
     private Integer silver;
