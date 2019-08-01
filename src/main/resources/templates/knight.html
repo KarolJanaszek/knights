@@ -48,15 +48,13 @@
             <div>
                 <ul class="header__stats">
                     <li>
-                        PŻ: 500/500
+                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine" th:text="${knight.maxHp}"/>
                     </li>
-
                     <li>
-                        PD: 80/100
+                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine" th:text="${knight.maxPd}"/>
                     </li>
-
                     <li>
-                        iLvl: 50
+                        iLvl: <p class="inOneLine" th:text="${knight.iLvl}"/>
                     </li>
                     <table class="gold">
                         <tr>
@@ -65,13 +63,14 @@
                             <td>Bronze</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>84</td>
-                            <td>55</td>
+                            <td><p class="inOneLine" th:text="${knight.gold}"/></td>
+                            <td><p class="inOneLine" th:text="${knight.silver}"/></td>
+                            <td><p class="inOneLine" th:text="${knight.bronze}"/></td>
                         </tr>
                     </table>
 
                 </ul>
+
             </div>
 
             <!-- end header__social -->
@@ -100,7 +99,7 @@
                 <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                 <ul class="header__nav">
-                    <li><a href="/rycerz" title="">Rycerz</a></li>
+                    <li><a th:href="'/knight/'+${knight.knightId}" title="">Rycerz</a></li>
                     <li><a href="style-guide.html" title="">Wyprawa</a></li>
                     <li><a href="style-guide.html" title="">Tawerna</a></li>
                     <li class="has-children">
@@ -125,16 +124,16 @@
 
 <!-- s-content
 ================================================== -->
-<section class="s-content s-content--narrow">
+<section class="s-content s-content--narrow" th:object="${knight}">
 
     <table>
         <td>
             <div class="row">
 
                 <div class="s-content__header col-full">
-                    <h1 class="s-content__header-title"/>
-                    <h2>
-                        Level: 15</h2>
+                    <h1 class="s-content__header-title" th:text="${knight.nick}"/>
+
+                    <h2>Level: <p class="inOneLine" th:text="${knight.lvl}"/></h2>
 
                 </div> <!-- end s-content__header -->
 
@@ -159,16 +158,16 @@
                     </tr>
                     <br>
                     <tr>
-                        <a class="adder">+</a> Siła: 150<br>
+                        <a class="adder">+</a> Siła: <p class="inOneLine" th:text="${knight.strength}"/><br>
                     </tr>
                     <tr>
-                        + Zwinność: 100<br>
+                        + Zwinność: <p class="inOneLine" th:text="${knight.agility}"/><br>
                     </tr>
                     <tr>
-                        + Wytrzymałość: 120<br>
+                        + Wytrzymałość: <p class="inOneLine" th:text="${knight.stamina}"/><br>
                     </tr>
                     <tr>
-                        + Handel: 80<br>
+                        + Handel: <p class="inOneLine" th:text="${knight.trade}"/><br>
                     </tr>
                 </td>
             </table>

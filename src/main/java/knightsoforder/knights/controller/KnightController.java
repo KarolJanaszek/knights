@@ -21,18 +21,19 @@ public class KnightController {
         return "create";
     }
 
-    @GetMapping("/knight/{id}")
-    public String knightHome(@PathVariable Integer id, ModelMap map){
-        map.put("knight",knightRepository.findById(id));
-        return "knight";
-    }
-
     @GetMapping("/done")
     public String create(@ModelAttribute Knight knight,ModelMap map){
         knightRepository.saveDefault(knight);
         map.put("knight",knight);
         return "done";
     }
+
+    @GetMapping("/knight/{id}")
+    public String knightHome(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "knight";
+    }
+
 
 
 
