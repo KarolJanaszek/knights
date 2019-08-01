@@ -57,11 +57,7 @@
 <section class="s-content-reg s-content--narrow">
     <center>
         <h1>Rycerz stworzony. Brawo!</h1>
-        <form action="/knight">
-            <p>
-                <input type="submit" value="Rozpocznij grę">
-            </p>
-        </form>
+        <a th:href="'/knight/'+${knight.knight_ID}">Show</a>
     </center>
 </section> <!-- s-content -->
 

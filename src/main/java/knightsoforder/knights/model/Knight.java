@@ -35,8 +35,8 @@ public class Knight {
     private Integer agility;
     private Integer stamina;
     private Integer trade;
-
-    @OneToOne
-    private User user;
+//
+//    @OneToOne
+//    private User user;
 
 }

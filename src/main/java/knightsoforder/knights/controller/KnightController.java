@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class KnightController {
@@ -20,14 +21,16 @@ public class KnightController {
         return "createknight";
     }
 
-    @GetMapping("/knight")
-    public String knightHome(){
+    @GetMapping("/knight/{id}")
+    public String knightHome(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id));
         return "knight";
     }
 
     @GetMapping("/knightcreated")
-    public String create(@ModelAttribute Knight knight){
+    public String create(@ModelAttribute Knight knight,ModelMap map){
         knightRepository.saveDefault(knight);
+        map.put("knight",knight);
         return "created";
     }
 
