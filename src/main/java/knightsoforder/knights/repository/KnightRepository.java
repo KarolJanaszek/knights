@@ -12,9 +12,9 @@ public interface KnightRepository extends CrudRepository<Knight, Integer> {
         knight.setMaxHp(100);
         knight.setHp(100);
         knight.setILvl(0);
-        knight.setGold(0);
-        knight.setSilver(0);
-        knight.setBronze(0);
+        knight.setGold(1);
+        knight.setSilver(30);
+        knight.setBronze(50);
         knight.setStrength(10);
         knight.setAgility(10);
         knight.setStamina(10);

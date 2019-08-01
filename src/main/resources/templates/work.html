@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Rycerz | KoO</title>
+    <title>Tawerna | KoO</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -48,10 +48,12 @@
             <div>
                 <ul class="header__stats">
                     <li>
-                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine" th:text="${knight.maxHp}"/>
+                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine"
+                                                                             th:text="${knight.maxHp}"/>
                     </li>
                     <li>
-                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine" th:text="${knight.maxPd}"/>
+                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine"
+                                                                             th:text="${knight.maxPd}"/>
                     </li>
                     <li>
                         iLvl: <p class="inOneLine" th:text="${knight.iLvl}"/>
@@ -122,55 +124,20 @@
 
 <!-- s-content
 ================================================== -->
-<section class="s-content s-content--narrow" th:object="${knight}">
+<section class="s-content s-content--narrow">
+    <center>
 
-    <table>
-        <td>
-            <div class="row">
+        <h1>Zatrudnij się do pracy</h1>
+        <br>
+        <select class="browser-default custom-select">
+            <option selected>Na jak długo?</option>
+            <option value="1">1h</option>
+            <option value="2">2h</option>
+            <option value="3">3h</option>
+        </select>
+        <a th:href="'/mission10/'+${knight.knightId}"><input type="button" value="Udaj się do pracy"></a>
 
-                <div class="s-content__header col-full">
-                    <h1 class="s-content__header-title" th:text="${knight.nick}"/>
-
-                    <h2>Level: <p class="inOneLine" th:text="${knight.lvl}"/></h2>
-
-                </div> <!-- end s-content__header -->
-
-                <div class="s-content__media col-full">
-                    <div class="s-content__post-thumb">
-                        <img src="/images/thumbs/about/about-1000.jpg" class="center">
-                    </div>
-                </div> <!-- end s-content__media -->
-            </div>
-        </td>
-        <td>
-            <table>
-                <td>
-                    <tr>
-                        <div class="row">
-                            <div class="s-content__header col-full">
-                                <h2 class="s-content__header-title">
-                                    Statystyki
-                                </h2>
-                            </div>
-                        </div>
-                    </tr>
-                    <br>
-                    <tr>
-                        <a class="adder">+</a> Siła: <p class="inOneLine" th:text="${knight.strength}"/><br>
-                    </tr>
-                    <tr>
-                        + Zwinność: <p class="inOneLine" th:text="${knight.agility}"/><br>
-                    </tr>
-                    <tr>
-                        + Wytrzymałość: <p class="inOneLine" th:text="${knight.stamina}"/><br>
-                    </tr>
-                    <tr>
-                        + Handel: <p class="inOneLine" th:text="${knight.trade}"/><br>
-                    </tr>
-                </td>
-            </table>
-        </td>
-    </table>
+    </center>
 </section> <!-- s-content -->
 
 

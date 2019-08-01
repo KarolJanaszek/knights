@@ -39,4 +39,11 @@ public class Knight {
 //    @OneToOne
 //    private User user;
 
+
+    //toString
+    @Override
+    public String toString() {
+        return getKnightId()+". Nick: "+getNick();
+    }
+
 }

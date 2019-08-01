@@ -35,7 +35,47 @@ public class KnightController {
     }
 
 
+    //zakładki
+    @GetMapping("/mission/{id}")
+    public String knightMission(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "mission";
+    }
 
+    @GetMapping("/mission10/{id}")
+    public String knightMission10(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "mission10";
+    }
+
+    @GetMapping("/mission20/{id}")
+    public String knightMission20(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "mission10";
+    }
+
+    @GetMapping("/mission30/{id}")
+    public String knightMission30(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "mission10";
+    }
+
+
+    //praca
+    @GetMapping("/work/{id}")
+    public String knightWork(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        return "work";
+    }
+
+
+    //ranking
+    @GetMapping("/knightRank/{id}")
+    public String knightKnightRank(@PathVariable Integer id, ModelMap map){
+        map.put("knight",knightRepository.findById(id).get());
+        map.put("knights",knightRepository.findAll());
+        return "knightRank";
+    }
 
 
 
