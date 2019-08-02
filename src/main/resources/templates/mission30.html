@@ -1,234 +1,56 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Misja | KoO</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+        body {
+            background-image: url("../images/thumbs/mission.jpg");
+        }
+    </style>
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/vendor.css">
-    <link rel="stylesheet" href="/css/main.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 </head>
+<body>
 
-<body id="top">
+<p id="demo"></p>
 
-<!-- pageheader
-================================================== -->
-<div class="s-pageheader">
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date().getTime()+1000*60*30;
 
-    <header class="header">
-        <div class="header__content row">
+    // Update the count down every 1 second
+    var x = setInterval(function() {
 
-            <div class="header__logo">
-                <a class="logo" href="index.html">
-                    <img src="/images/logo.svg" alt="Homepage">
-                </a>
-            </div> <!-- end header__logo -->
-            <div>
-                <ul class="header__stats">
-                    <li>
-                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine"
-                                                                             th:text="${knight.maxHp}"/>
-                    </li>
-                    <li>
-                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine"
-                                                                             th:text="${knight.maxPd}"/>
-                    </li>
-                    <li>
-                        iLvl: <p class="inOneLine" th:text="${knight.iLvl}"/>
-                    </li>
-                    <table class="gold">
-                        <tr>
-                            <td>Gold</td>
-                            <td>Silver</td>
-                            <td>Bronze</td>
-                        </tr>
-                        <tr>
-                            <td><p class="inOneLine" th:text="${knight.gold}"/></td>
-                            <td><p class="inOneLine" th:text="${knight.silver}"/></td>
-                            <td><p class="inOneLine" th:text="${knight.bronze}"/></td>
-                        </tr>
-                    </table>
+        // Get today's date and time
+        var now = new Date().getTime();
 
-                </ul>
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
 
-            </div>
+        // Time calculations for days, hours, minutes and seconds
+        //var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            <!-- end header__social -->
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = hours + "h "
+            + minutes + "m " + seconds + "s ";
 
-            <a class="header__search-trigger" href="#0"></a>
-            <div class="header__search">
-
-                <form role="search" method="get" class="header__search-form" action="#">
-                    <label>
-                        <span class="hide-content">Search knight:</span>
-                        <input type="search" class="search-field" placeholder="Enter knight name" value="" name="s"
-                               title="Search knight:" autocomplete="off">
-                    </label>
-                    <input type="submit" class="search-submit" value="Search">
-                </form>
-
-                <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
-
-            </div>  <!-- end header__search -->
-
-
-            <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
-            <nav class="header__nav-wrap">
-
-                <h2 class="header__nav-heading h6">Site Navigation</h2>
-
-                <ul class="header__nav">
-                    <li><a th:href="'/knight/'+${knight.knightId}" title="">Rycerz</a></li>
-                    <li><a th:href="'/mission/'+${knight.knightId}" title="">Misja</a></li>
-                    <li><a th:href="'/work/'+${knight.knightId}" title="">Tawerna</a></li>
-                    <li class="has-children">
-                        <a href="#0" title="">Ranking</a>
-                        <ul class="sub-menu">
-                            <li><a th:href="'/knightRank/'+${knight.knightId}">Rycerze</a></li>
-                        </ul>
-                    </li>
-                </ul> <!-- end header__nav -->
-
-                <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
-
-            </nav> <!-- end header__nav-wrap -->
-
-        </div> <!-- header-content -->
-    </header> <!-- header -->
-
-</div> <!-- end s-pageheader -->
-
-
-<!-- s-content
-================================================== -->
-<section class="s-content s-content--narrow">
-    <center>
-
-
-
-    </center>
-</section> <!-- s-content -->
-
-
-<!-- s-footer
-================================================== -->
-<footer class="s-footer">
-
-    <div class="s-footer__main">
-        <div class="row">
-
-            <div class="col-two md-four mob-full s-footer__sitelinks">
-
-                <h4>Quick Links</h4>
-
-                <ul class="s-footer__linklist">
-                    <li><a href="#0">Rycerz</a></li>
-                    <li><a href="#0">Wyprawa</a></li>
-                    <li><a href="#0">Tawerna</a></li>
-                    <li><a href="#0">Ranking</a></li>
-                </ul>
-
-
-            </div> <!-- end s-footer__archives -->
-
-            <div class="col-two md-four mob-full s-footer__social">
-
-                <h4>Social</h4>
-
-                <ul class="s-footer__linklist">
-                    <li><a href="#0">Facebook</a></li>
-                    <li><a href="#0">Instagram</a></li>
-                </ul>
-
-            </div> <!-- end s-footer__social -->
-
-            <div class="col-five md-full end s-footer__subscribe">
-
-                <h4>Our Newsletter</h4>
-
-                <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et
-                    enim exercitationem ipsam. Culpa consequatur occaecati.</p>
-
-                <div class="subscribe-form">
-                    <form id="mc-form" class="group" novalidate="true">
-
-                        <input type="email" value="" name="EMAIL" class="email" id="mc-email"
-                               placeholder="Email Address" required="">
-
-                        <input type="submit" name="subscribe" value="Send">
-
-                        <label for="mc-email" class="subscribe-message"></label>
-
-                    </form>
-                </div>
-
-            </div> <!-- end s-footer__subscribe -->
-
-        </div>
-    </div> <!-- end s-footer__main -->
-
-    <div class="s-footer__bottom">
-        <div class="row">
-            <div class="col-full">
-                <div class="s-footer__copyright">
-                    <span>© Copyright Philosophy 2018</span>
-                    <span>Site Template by <a href="https://colorlib.com/">Colorlib</a></span>
-                </div>
-
-                <div class="go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
-                </div>
-            </div>
-        </div>
-    </div> <!-- end s-footer__bottom -->
-
-</footer> <!-- end s-footer -->
-
-
-<!-- preloader
-================================================== -->
-<div id="preloader">
-    <div id="loader">
-        <div class="line-scale">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Java Script
-================================================== -->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+        // If the count down is over, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Misja zakończona";
+            window.location.href = 'http://localhost:5050/mission/1';
+        }
+    }, 1000);
+</script>
 
 </body>
-
 </html>
