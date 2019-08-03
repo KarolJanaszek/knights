@@ -128,13 +128,22 @@
     <center>
         <h1>Wybierasz się na wyprawę?</h1>
 
-        <select class="browser-default custom-select">
-            <option selected>Jak długo chcesz mieć misje?</option>
-            <option value="1">10 minut</option>
-            <option value="2">20 minut</option>
-            <option value="3">30 minut</option>
-        </select>
-        <a th:href="'/mission10/'+${knight.knightId}"><input type="button" value="Udaj się na misje"></a>
+        <div class="dropdown-plans">
+            <select id="basic_plan" name="bill_cycle">
+                <option th:value="'/mission/mission10/'+${id}">10 min</option>
+                <option th:value="'/mission/mission20/'+${id}">20 min</option>
+               <!-- <option th:value="'/mission30/'+${id}">30 min</option> -->
+            </select>
+        </div>
+        <div class="button-plans">
+            <a id="abc" th:href="'/mission/mission10/'+${id}">Rozpocznij misje</a>
+        </div>
+        <script>
+            var sel = document.getElementById('basic_plan');
+            sel.onchange = function () {
+                document.getElementById("abc").href = this.value + ".html";
+            }
+        </script>
 
     </center>
 </section> <!-- s-content -->

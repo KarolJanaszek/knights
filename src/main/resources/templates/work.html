@@ -129,13 +129,32 @@
 
         <h1>Zatrudnij się do pracy</h1>
         <br>
-        <select class="browser-default custom-select">
+      <!--  <select class="browser-default custom-select">
             <option selected>Na jak długo?</option>
             <option value="1">1h</option>
             <option value="2">2h</option>
             <option value="3">3h</option>
         </select>
         <a th:href="'/mission10/'+${knight.knightId}"><input type="button" value="Udaj się do pracy"></a>
+-->
+
+        <div class="dropdown-plans">
+            <select id="basic_plan" name="bill_cycle">
+                <option th:value="work1">1h</option>
+                <option th:value="'/work/work2/'+${id}">2h</option>
+                <option th:value="'/work/work3/'+${id}">3h</option>
+                <option th:value="'/work/work4/'+${id}">4h</option>
+            </select>
+        </div>
+        <div class="button-plans">
+            <a id="abc" th:href="'/work/work1/'+${id}">Udaj się do pracy.</a>
+        </div>
+        <script>
+            var sel = document.getElementById('basic_plan');
+            sel.onchange = function () {
+                document.getElementById("abc").href = this.value + ".html";
+            }
+        </script>
 
     </center>
 </section> <!-- s-content -->

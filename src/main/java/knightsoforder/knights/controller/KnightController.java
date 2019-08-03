@@ -42,20 +42,14 @@ public class KnightController {
         return "mission";
     }
 
-    @GetMapping("/mission10/{id}")
+    @GetMapping("/mission/mission10/{id}")
     public String knightMission10(@PathVariable Integer id, ModelMap map){
         map.put("knight",knightRepository.findById(id).get());
         return "mission10";
     }
 
-    @GetMapping("/mission20/{id}")
+    @GetMapping("/mission/mission20/{id}")
     public String knightMission20(@PathVariable Integer id, ModelMap map){
-        map.put("knight",knightRepository.findById(id).get());
-        return "mission10";
-    }
-
-    @GetMapping("/mission30/{id}")
-    public String knightMission30(@PathVariable Integer id, ModelMap map){
         map.put("knight",knightRepository.findById(id).get());
         return "mission10";
     }
@@ -73,7 +67,7 @@ public class KnightController {
     @GetMapping("/knightRank/{id}")
     public String knightKnightRank(@PathVariable Integer id, ModelMap map){
         map.put("knight",knightRepository.findById(id).get());
-        map.put("knights",knightRepository.findAll());
+        map.put("knights",knightRepository.sortKnightsByName());
         return "knightRank";
     }
 

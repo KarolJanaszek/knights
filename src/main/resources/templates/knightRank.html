@@ -128,7 +128,11 @@
     <center>
 
         <h1>Ranking</h1>
-        [[${knights}]]
+        <ul th:each="knight: ${knights}">
+            <li th:inline="text">
+                <a th:href="'knightShow/'+${knight.knightId}"\>[[${knight}]]</a>
+            </li>
+        </ul>
 
 
     </center>

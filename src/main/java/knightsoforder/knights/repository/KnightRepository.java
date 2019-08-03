@@ -1,7 +1,11 @@
 package knightsoforder.knights.repository;
 
 import knightsoforder.knights.model.Knight;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface KnightRepository extends CrudRepository<Knight, Integer> {
 
@@ -21,5 +25,8 @@ public interface KnightRepository extends CrudRepository<Knight, Integer> {
         knight.setTrade(10);
         save(knight);
     }
+
+    @Query(value = "SELECT * FROM knight ORDER BY nick", nativeQuery = true)
+    List<Knight> sortKnightsByName();
 
 }
