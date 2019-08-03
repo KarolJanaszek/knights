@@ -130,18 +130,19 @@
 
         <div class="dropdown-plans">
             <select id="basic_plan" name="bill_cycle">
-                <option th:value="'/mission/mission10/'+${id}">10 min</option>
-                <option th:value="'/mission/mission20/'+${id}">20 min</option>
-               <!-- <option th:value="'/mission30/'+${id}">30 min</option> -->
+                <option th:value="'/mission/'+${knight.knightId}">Na jak długą misję się wybierasz?</option>
+                <option th:value="'/mission10/'+${knight.knightId}">10 min</option>
+                <option th:value="'/mission20/'+${knight.knightId}">20 min</option>
+                <option th:value="'/mission30/'+${knight.knightId}">30 min</option>
             </select>
         </div>
         <div class="button-plans">
-            <a id="abc" th:href="'/mission/mission10/'+${id}">Rozpocznij misje</a>
+            <a id="abc" th:href="'/mission/'+${knight.knightId}">Rozpocznij misje</a>
         </div>
         <script>
             var sel = document.getElementById('basic_plan');
             sel.onchange = function () {
-                document.getElementById("abc").href = this.value + ".html";
+                document.getElementById("abc").href = this.value;
             }
         </script>
 
