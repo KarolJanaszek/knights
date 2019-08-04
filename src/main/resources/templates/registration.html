@@ -58,7 +58,6 @@
     <center>
     <h1>Zarejestruj</h1>
     <form action="/create" method="post" th:object="${newUser}">
-        <input type="hidden" th:field="${knight.user}">
 
         <p>
             <a>E-Mail: </a><input th:field="*{email}" type="email" value=""></p>

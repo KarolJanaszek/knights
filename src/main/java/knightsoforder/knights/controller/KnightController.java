@@ -16,12 +16,6 @@ public class KnightController {
     @Autowired
     private KnightRepository knightRepository;
 
-    @GetMapping("/create")
-    public String addNewKnight(@ModelAttribute User user, @ModelAttribute Knight knight, ModelMap map) {
-        map.put("newKnight", knight);
-        return "create";
-    }
-
     @GetMapping("/done")
     public String create(@ModelAttribute Knight knight, ModelMap map) {
         knightRepository.saveDefault(knight);

@@ -1,6 +1,7 @@
 package knightsoforder.knights.repository;
 
 import knightsoforder.knights.model.Knight;
+import knightsoforder.knights.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
