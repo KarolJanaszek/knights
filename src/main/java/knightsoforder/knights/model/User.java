@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -20,5 +22,8 @@ public class User {
     private String email;
     @NotEmpty
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Knight> knights = new ArrayList<>();
 
 }

@@ -58,7 +58,7 @@
     <center>
         <h1>Podaj dane rycerza</h1>
         <form action="/done" method="get" th:object="${knight}">
-            <input type="hidden" th:field="*{user}">
+            <input type="" th:field="${knight.user}" th:value="${myUser.userId}">
 
             <p>
                 Nick: <input th:field="*{nick}" type="text">

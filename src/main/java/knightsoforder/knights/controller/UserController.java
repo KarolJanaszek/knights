@@ -25,16 +25,16 @@ public class UserController {
     public String registeration(ModelMap map){
         User user = new User();
         map.put("newUser", user);
-        Knight knight = new Knight();
-        //knight.setUser(user);
-        //map.put("knight", knight);
         return "registration";
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute User user, @ModelAttribute Knight knight, ModelMap map){
+    public String createUser(@ModelAttribute User user, ModelMap map){
         userRepository.save(user);
+        Knight knight = new Knight();
+        knight.setUser(user);
         map.put("knight", knight);
+        map.put("myUser", user);
         return "create";
     }
 }
