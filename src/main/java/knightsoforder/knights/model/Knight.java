@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +16,7 @@ public class Knight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer knightId;
+    @NotEmpty
     private String nick;
 
     private Integer lvl;
@@ -35,9 +37,9 @@ public class Knight {
     private Integer agility;
     private Integer stamina;
     private Integer trade;
-//
-//    @OneToOne
-//    private User user;
+
+    @OneToOne
+    private User user;
 
 
     //toString

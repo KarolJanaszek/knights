@@ -1,5 +1,6 @@
 package knightsoforder.knights.controller;
 
+import knightsoforder.knights.model.Knight;
 import knightsoforder.knights.model.User;
 import knightsoforder.knights.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,11 @@ public class UserController {
 
     @GetMapping("/registration")
     public String registeration(ModelMap map){
-        map.put("newUser",new User());
+        User user = new User();
+        map.put("newUser", user);
+        Knight knight = new Knight();
+        knight.setUser(user);
+        map.put("knight", knight);
         return "registration";
     }
 
