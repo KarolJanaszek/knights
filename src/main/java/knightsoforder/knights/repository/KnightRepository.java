@@ -30,4 +30,9 @@ public interface KnightRepository extends CrudRepository<Knight, Integer> {
     @Query(value = "SELECT * FROM knight ORDER BY nick", nativeQuery = true)
     List<Knight> sortKnightsByName();
 
+    @Query(value = "SELECT knight_id FROM knightsoforder.knight", nativeQuery = true)
+    List<Knight> getKnightIdByName();
+
+
+
 }

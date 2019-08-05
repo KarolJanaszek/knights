@@ -58,7 +58,7 @@
     <center>
         <h1>Podaj dane rycerza</h1>
         <form action="/done" method="get" th:object="${knight}">
-            <input type="" th:field="${knight.user}" th:value="${myUser.userId}">
+            <input type="hidden" th:field="${knight.user}" th:value="${myUser.userId}"> <!-- Nie ustawia usera w rycerzu -->
 
             <p>
                 Nick: <input th:field="*{nick}" type="text">

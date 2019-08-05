@@ -16,6 +16,7 @@ public class KnightController {
     @Autowired
     private KnightRepository knightRepository;
 
+    //page before knight home
     @GetMapping("/done")
     public String create(@ModelAttribute Knight knight, ModelMap map) {
         knightRepository.saveDefault(knight);
@@ -23,6 +24,7 @@ public class KnightController {
         return "done";
     }
 
+    //knight main page
     @GetMapping("/knight/{id}")
     public String knightHome(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
@@ -30,7 +32,7 @@ public class KnightController {
     }
 
 
-    //zakładki
+    //missions
     @GetMapping("/mission/{id}")
     public String knightMission(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
@@ -56,7 +58,7 @@ public class KnightController {
     }
 
 
-    //praca
+    //work
     @GetMapping("/work/{id}")
     public String knightWork(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
@@ -76,13 +78,20 @@ public class KnightController {
     }
 
 
-    //ranking
+    //ranki
     @GetMapping("/knightRank/{id}")
     public String knightKnightRank(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
-        map.put("knights", knightRepository.sortKnightsByName());
+        map.put("findedKnights", knightRepository.sortKnightsByName());
         return "knightRank";
     }
 
 
+//    //Knight show
+//    @GetMapping("/showKnight/{id)/{showId}")
+//    public String showKnight(@PathVariable Integer id, @PathVariable Integer showId, ModelMap map) {
+//        map.put("knight", knightRepository.findById(id).get());
+//
+//        return "showKnight";
+//    }
 }

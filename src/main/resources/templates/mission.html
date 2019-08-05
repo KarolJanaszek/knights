@@ -48,31 +48,23 @@
             <div>
                 <ul class="header__stats">
                     <li>
-                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine"
-                                                                             th:text="${knight.maxHp}"/>
+                        PŻ: <p class="inOneLine" th:text="${knight.hp}"/>/<p class="inOneLine" th:text="${knight.maxHp}"/>
                     </li>
                     <li>
-                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine"
-                                                                             th:text="${knight.maxPd}"/>
+                        PD: <p class="inOneLine" th:text="${knight.pd}"/>/<p class="inOneLine" th:text="${knight.maxPd}"/>
                     </li>
                     <li>
                         iLvl: <p class="inOneLine" th:text="${knight.iLvl}"/>
                     </li>
                     <table class="gold">
                         <tr>
-                            <td>Gold</td>
-                            <td>Silver</td>
-                            <td>Bronze</td>
-                        </tr>
-                        <tr>
-                            <td><p class="inOneLine" th:text="${knight.gold}"/></td>
-                            <td><p class="inOneLine" th:text="${knight.silver}"/></td>
-                            <td><p class="inOneLine" th:text="${knight.bronze}"/></td>
+                            <td><font color="#ffd700">Gold:</font> <p class="inOneLine" th:text="${knight.gold}"/></td>
+                            <td><font color="silver">Silver:</font> <p class="inOneLine" th:text="${knight.silver}"/></td>
+                            <td><font color="#8b4513">Bronze:</font> <p class="inOneLine" th:text="${knight.bronze}"/></td>
                         </tr>
                     </table>
 
                 </ul>
-
             </div>
 
             <!-- end header__social -->
