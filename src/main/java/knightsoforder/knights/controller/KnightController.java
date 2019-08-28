@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class KnightController {
@@ -83,6 +84,21 @@ public class KnightController {
     public String knightKnightRank(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
         map.put("findedKnights", knightRepository.sortKnightsByName());
+        return "knightRank";
+    }
+
+    //search
+    @GetMapping("/knightRank/search/{id}")
+    public String findKnight(@PathVariable Integer id, @RequestParam String name, ModelMap redirectAtribute){
+        redirectAtribute.put("knight", knightRepository.findById(id).get());
+        redirectAtribute.addAttribute("findedKnights",knightRepository.findKnightByName(name));
+
+
+        if(knightRepository.findKnightByName(name).size()>0)
+            redirectAtribute.addAttribute("message", "Znaleziony rycerza:");
+        else
+            redirectAtribute.addAttribute("message", "Nie znaleziono rycerza o tym imieniu.");
+
         return "knightRank";
     }
 
