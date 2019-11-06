@@ -20,8 +20,10 @@ public class User {
 
     @Email
     private String email;
-    @NotEmpty
+    //@NotEmpty
     private String password;
+    //@NotEmpty
+    private String accountType;
 
     @OneToMany(mappedBy = "user")
     private List<Knight> knights = new ArrayList<>();

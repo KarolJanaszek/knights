@@ -28,7 +28,7 @@ public class UserController {
         return "registration";
     }
 
-    @PostMapping("/create")
+    @GetMapping("/create")
     public String createUser(@ModelAttribute User user, ModelMap map){
         userRepository.save(user);
         Knight knight = new Knight();

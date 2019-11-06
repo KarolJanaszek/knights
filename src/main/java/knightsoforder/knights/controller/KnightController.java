@@ -79,7 +79,7 @@ public class KnightController {
     }
 
 
-    //ranki
+    //rank
     @GetMapping("/knightRank/{id}")
     public String knightKnightRank(@PathVariable Integer id, ModelMap map) {
         map.put("knight", knightRepository.findById(id).get());
